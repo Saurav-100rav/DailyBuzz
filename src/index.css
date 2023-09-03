@@ -62,4 +62,46 @@
   bottom: 0;
   left: 40%;
 }
+/* Styling button container */
+.button-container {
+  width: 40%;
+  margin: 1rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  transition: all 0.4s linear;
+}
 
+/* Styling previous button */
+.prev-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  /* margin-right:3rem; */
+}
+
+.prev-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Styling next button */
+.next-button {
+  background-color: #28A745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background-color: #1E7E34;
+  transform: scale(1.1);
+}
+.prev-button-disabled,.next-button-disabled{
+  display: none;
+}
