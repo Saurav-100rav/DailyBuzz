@@ -17,7 +17,7 @@ const HomePage = () => {
   return (
     <div className='container'>
         <h2>DailyBuzz - Top Headlines</h2>
-        <div className="news-column">
+        <div className="news-section">
             {
                 articles === [] ? "" 
                     : articles.map( (headline,index) => {

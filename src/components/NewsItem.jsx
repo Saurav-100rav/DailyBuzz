@@ -5,11 +5,11 @@ export const NewsItem = ({headlines}) => {
     // console.log(headlines);
   return (
     <div className='card'>
-        {/* <img src={headlines.urlToImage} alt="source_pic" /> */}
+        <img src={headlines.urlToImage} alt="source_pic" />
         <div className="card-body">
-            <h5 className='card-title'>{headlines.title}</h5>
-            <p className='card-description'>{headlines.description}</p>
-            <a href={headlines.url}><button>get details</button></a>
+            <h5 className='card-title'>{headlines.title.split(" ").slice(0,13).join(" ")}</h5>
+            <p className='card-description'>{headlines.description.split(" ").slice(0,24).join(" ")}</p>
+            <a href={headlines.url}><button>Read More</button></a>
         </div>
     </div>
   )
