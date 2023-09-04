@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { NewsItem } from './NewsItem'
 import Spinner from './Spinner';
 
-const HomePage = () => {
+const HomePage = ({news_category}) => {
     // const url = "https://newsapi.org/v2/everything?q=keyword&apiKey=080a2bf499804821a1e3b8c617193d67"
+    const api_key = process.env.REACT_APP_API_KEY;
     const [articles,setArticles] = useState([]);
     const [page,setPage] = useState(1);
     const [loading, setLoading] = useState(true);
@@ -14,13 +15,13 @@ const HomePage = () => {
     useEffect(()=>{
         if(page===1) setPrevBtnClass("prev-button-disabled") 
             else setPrevBtnClass("prev-button");
-        if(page===4) setNextBtnClass("next-button-disabled")
+        if(page===totalPages) setNextBtnClass("next-button-disabled")
             else setNextBtnClass("next-button");
         fetchNews();
     },[page]);
     const fetchNews = async()=>{
         console.log(loading,articles)
-        const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=080a2bf499804821a1e3b8c617193d67&page=${page}&pageSize=${news_items_per_page}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=in&category=${news_category}&apiKey=${api_key}&page=${page}&pageSize=${news_items_per_page}`;
         const response =  await fetch(url);
         const result = await response.json();
         console.log(result,typeof(result));
@@ -28,6 +29,8 @@ const HomePage = () => {
         setTotalPages(Math.ceil(result.totalResults/news_items_per_page));
         setLoading(false)
         console.log(result.totalResults, totalPages);
+        const news_type = news_category.charAt(0).toUpperCase()+news_category.slice(1);
+        document.title = `DailyBuzz - ${news_type}`;
     }
     const nextPageHandler = async()=>{
         setLoading(true);
@@ -48,7 +51,7 @@ const HomePage = () => {
     }
   return (
     <div className='container'>
-        <h2>DailyBuzz - Top Headlines</h2>
+        <h2>DailyBuzz - Top {news_category.charAt(0).toUpperCase()+news_category.slice(1)} News Headlines</h2>
         <div className="news-section">
             {
                 loading === true ? <Spinner/>
