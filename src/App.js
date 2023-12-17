@@ -1,6 +1,6 @@
 import HomePage from "./components/HomePage";
-import { Navbar } from "./components/NavBar";
-import { BrowserRouter as Router , Routes,Route } from "react-router-dom";
+import { Navbar } from "./components/navbar/NavBar";
+import { BrowserRouter as Router , Routes,Route,Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         <Route path="/technology"      element={<HomePage key="technology"    news_category="technology"/>} />
         <Route path="/business"        element={<HomePage key="business"      news_category="business"/>} />
         <Route path="/health"          element={<HomePage key="health"        news_category="health"/>} />
+        <Route path="*" element={<Navigate to="/" replace />}/>
       </Routes>
     </Router>
   );

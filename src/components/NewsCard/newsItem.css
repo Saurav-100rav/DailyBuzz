@@ -1,0 +1,77 @@
+.card{
+    border: 1.5px solid rgba(0, 0, 0, 0.603);
+    margin: 1.9rem 2.2rem;
+    width:  19rem;
+    height: 26rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem;
+    transition: all 0.3s linear;
+  }
+  .card img{
+    width: 90%;
+    height: 34%;
+  }
+  .card img:hover{
+    transform: scale(1.07);
+  }
+  .card .card-body{
+    /* border: 1px solid yellow; */
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    position: relative;
+    padding: 0.7rem;
+  }
+  .card-body h5{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(28, 28, 28);
+  }
+  .card-body button{
+    position: absolute;
+    bottom: 3%;
+    left: 25%;
+    padding: 0.6rem 2rem;
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.683);
+    border: 1px solid blue;
+    color: white;
+  }
+  .card-body button:hover{
+    background-color: tomato;
+  }
+ .card-body .card-description{
+    color: #424242;
+    font-family: "Lato",sans-serif;
+    padding: 0.6rem;
+ }
+  #headlines-publication-time{
+    align-self: flex-start;
+    color: #757575;
+    font-size: 14px;
+    
+  }
+  .badge{
+    position: relative;
+    left: 7.8rem;
+    bottom:0.7rem;
+  }
+  @media(max-width:350px){
+    .card{
+      margin: 1rem 0 1.3rem;
+    }
+    .badge{
+      left: 0rem;
+      bottom:0.7rem;
+    }
+  }
